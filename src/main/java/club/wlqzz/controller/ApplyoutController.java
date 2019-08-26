@@ -36,7 +36,7 @@ public class ApplyoutController {
     public String insertapplyout(String house_id, Model model) {
         Zulist zulist = zulistService.findzulist(house_id);
         applyoutService.insertapplyout(zulist);
-        model.addAttribute("error", "applysuccess");
+        model.addAttribute("error", "applysuccess.jsp");
         return "redirect:/zulist/myzulist";
     }
 
@@ -49,7 +49,7 @@ public class ApplyoutController {
         PageInfo<Applyout> p = new PageInfo<Applyout>(applyout);
         model.addAttribute("applyout", applyout);
         model.addAttribute("p", p);
-        model.addAttribute("mainPage", "applyout");
+        model.addAttribute("mainPage", "applyout.jsp");
         return "applyout";
     }
 

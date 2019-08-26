@@ -50,8 +50,8 @@ public class HetongController {
     public String seehetong(String house_id, Model model) {
         Hetong hetong = hetongService.findhetong(house_id);
         model.addAttribute("hetong", hetong);
-        model.addAttribute("mainPage", "hetong");
-        return "main1";
+        model.addAttribute("mainPage", "hetong.jsp");
+        return "hetong";
     }
 
     @RequestMapping("/updatehetong")
@@ -59,7 +59,7 @@ public class HetongController {
         Hetong hetong = hetongService.findhetong(house_id);
         model.addAttribute("hetong", hetong);
         model.addAttribute("mainPage", "updatehetong");
-        return "main1";
+        return "updatehetong";
     }
 
     @RequestMapping("/changehetong")

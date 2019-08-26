@@ -15,50 +15,38 @@
             font-size: 13px;
             color: red;
         }
-
     </style>
     <script type="text/javascript">
         $().ready(function () {
             // 在键盘按下并释放及提交后验证提交表单
             $("#myform").validate({
-
                 rules: {
                     name: {
                         required: true,
                     },
-
                     idcard: {
                         required: true,
-
-
                     },
                     phone: {
                         required: true,
                         number: true
-
                     }
-
                 },
                 messages: {
                     name: {
                         required: "姓名不能为空！",
                     },
-
                     idcard: {
                         required: "身份证号码不能为空！",
-
                     },
                     phone: {
                         required: "手机号码不能为空！",
                         number: "请输入正确的手机号码"
-
                     }
-
                 }
             });
         })
     </script>
-
 </head>
 <body>
 
@@ -67,7 +55,8 @@
 </div>
 <div class="result-content">
     <div class="sidebar-title">
-        <form action="checkuserlist.action" method="post" id="myform" name="myform" enctype="multipart/form-data">
+        <form action="${pageContext.request.contextPath}/checkuserlist" method="post" id="myform"
+              name="myform" enctype="multipart/form-data">
             <table class="insert-tab" width="100%">
                 <tbody>
                 <input type="hidden" name="id" value="${userlist.id}"/>
@@ -87,7 +76,6 @@
                     <td><input class="common-text" name="phone" value="${userlist.phone }" id="phone" size="50"
                                type="text"></td>
                 </tr>
-
                 <tr>
                     <th></th>
                     <td>
@@ -103,6 +91,5 @@
         </form>
     </div>
 </div>
-
 </body>
 </html>

@@ -22,13 +22,11 @@ public class HetongServiceImpl implements HetongService {
 
     @Override
     public Hetong findhetong(String house_id) {
-        Hetong hetong = hetongMapper.findhetong(house_id);
-        return hetong;
+        return  hetongMapper.findhetong(house_id);
     }
 
     @Override
     public void updatehetong(Hetong hetong) {
-
         hetongMapper.updatehetong(hetong);
     }
 

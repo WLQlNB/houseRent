@@ -79,7 +79,6 @@ public class ApplyController {
         zulist.setHouse_id(house_id);
         zulist.setPrice(houselist.getPrice());
         zulist.setAddress(houselist.getAddress());
-
         return "";
     }
 

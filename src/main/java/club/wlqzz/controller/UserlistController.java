@@ -5,7 +5,9 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 import club.wlqzz.pojo.User;
 import club.wlqzz.pojo.Userlist;
+import club.wlqzz.service.UserService;
 import club.wlqzz.service.UserlistService;
+import club.wlqzz.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,16 +19,17 @@ import com.github.pagehelper.PageInfo;
 
 @Controller
 public class UserlistController {
-
+    @Autowired
+    private UserService userService;
     @Autowired
     private UserlistService userlistService;
-
 
     @RequestMapping("/findhasuserlist")
     public String findhasuserlist(HttpSession httpSession, Model model) throws Exception {
         User user1 = (User) httpSession.getAttribute("user");
         Integer user_id = user1.getId();
         Userlist userlist = userlistService.findhasuserlist(user_id);
+        userService.updateUser(user1);
         model.addAttribute("userlist", userlist);
         model.addAttribute("mainPage", "updateuserlist.jsp");
         return "updateuserlist";
@@ -39,7 +42,6 @@ public class UserlistController {
         if (userlist.getId() == null) {
             String idcard = userlist.getIdcard();
             Userlist list = userlistService.checkuserlist(idcard);
-
             if (list != null) {
                 model.addAttribute("error", "该身份证已被绑定,一个身份证号码只能被一个账户绑定！");
                 model.addAttribute("mainPage", "updateuserlist");
@@ -54,10 +56,7 @@ public class UserlistController {
                 model.addAttribute("mainPage", "updateuserlist");
                 model.addAttribute("userlist", list1);
             }
-
-
         } else {
-
             Userlist list = userlistService.finduserlistupdate(userlist);
             if (list != null) {
                 model.addAttribute("error", "该身份证号码已被绑定");
@@ -66,12 +65,11 @@ public class UserlistController {
             } else {
                 userlistService.updateuserlist(userlist);
                 model.addAttribute("error", "更新成功");
-                model.addAttribute("mainPage", "updateuserlist");
+                model.addAttribute("mainPage", "updateuserlist.jsp");
                 model.addAttribute("userlist", userlist);
             }
-
         }
-        return "main";
+        return "updateuserlist";
     }
 
     @RequestMapping("/findalluserlist")

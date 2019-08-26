@@ -27,8 +27,7 @@
         <h1>我要收租</h1>
     </div>
     <form id="houseForm" name="houseForm"
-          action="${pageContext.request.contextPath}/paid/showaddpaid"
-          method=post>
+          action="${pageContext.request.contextPath}/paid/showaddpaid" method=post>
         <div class="result-title">
             <div class="result-list">
 

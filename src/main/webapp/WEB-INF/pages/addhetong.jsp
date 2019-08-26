@@ -135,7 +135,7 @@
 </div>
 <div class="result-content">
     <div class="sidebar-title">
-        <form action="${pageContext.request.contextPath}/hetong/inserthetong.action" method="post" id="myform"
+        <form action="${pageContext.request.contextPath}/hetong/inserthetong" method="post" id="myform"
               name="myform" enctype="multipart/form-data">
             <table class="insert-tab" width="100%">
                 <tbody>
@@ -173,12 +173,12 @@
                 <tr>
                     <th><i class="require-red">*</i>起租时间：</th>
                     <td><input class="common-text" name="fromdate" id="fromdate" value="${hetong.fromdate}" size="50"
-                               type="text" readonly></td>
+                               type="text"></td>
                 </tr>
                 <tr>
                     <th><i class="require-red">*</i>退租时间：</th>
                     <td><input class="common-text" name="todate" id="todate" value="${hetong.todate}" size="50"
-                               type="text" readonly></td>
+                               type="text" ></td>
                 </tr>
                 <tr>
                     <th><i class="require-red">*</i>每月租金：</th>

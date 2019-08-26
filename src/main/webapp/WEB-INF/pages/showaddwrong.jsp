@@ -32,10 +32,8 @@
           action="${pageContext.request.contextPath}/wrong/showaddwrong" method=post>
         <div class="result-title">
             <div class="result-list">
-
             </div>
         </div>
-
         <div class="result-content">
             <table id=grid
                    class="result-tab" width="100%">
@@ -48,7 +46,6 @@
                     <td>租赁人身份证号</td>
                     <td>租赁人联系电话</td>
                     <td>操作</td>
-
                 </tr>
                 <c:forEach items="${zulist}" var="zulist">
                     <tr style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">

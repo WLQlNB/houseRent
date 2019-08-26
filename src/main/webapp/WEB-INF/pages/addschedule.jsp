@@ -61,7 +61,7 @@
                 <th><i class="require-red">*</i>日期：</th>
                 <td>
                     <input class="common-text required" value="${schedule.date}" id="date" name="date" size="50"
-                           type="text" readonly>
+                           type="text">
                 </td>
                 </tr>
                 <tr>

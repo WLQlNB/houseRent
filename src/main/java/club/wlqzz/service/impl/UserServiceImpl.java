@@ -8,12 +8,16 @@ import club.wlqzz.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Override
+    public void updateUser(User user) {
+        userMapper.updateByPrimaryKey(user);
+    }
 
     @Override
     public List<User> userList() throws Exception {
@@ -25,9 +29,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User login(User user) throws Exception {
-        User user1 = userMapper.selectByUser(user);
-        return user1;
+        User user1=userMapper.selectByUser(user);
+            if(user1==null){
+                userMapper.insert(user);
+                user1 = userMapper.selectByUser(user);
+            }
+            return user1;
     }
-
 
 }

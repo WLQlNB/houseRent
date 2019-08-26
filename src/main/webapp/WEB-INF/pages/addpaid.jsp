@@ -82,7 +82,7 @@
                 </tr>
                 <tr>
                     <th><i class="require-red">*</i>租金交付截止日期：</th>
-                    <td><input class="common-text" name="date" value="" id="date" size="50" type="text" readonly></td>
+                    <td><input class="common-text" name="date" value="" id="date" size="50" type="text" ></td>
                 </tr>
                 <tr>
                     <th><i class="require-red">*</i>应缴租金：</th>

@@ -73,7 +73,8 @@
                 </li>
                 <li>
                     <a class="a"><i class="icon-font">&#xe018;</i>申请列表</a>
-                    <div class="p">            <ul class="sub-menu">
+                    <div class="p">
+                        <ul class="sub-menu">
                         <li><a href="${pageContext.request.contextPath}/findapplylist"><i class="icon-font">&#xe037;</i>看房申请</a></li>
                         <li><a href="${pageContext.request.contextPath}/applyout/findallapplyout"><i class="icon-font">&#xe037;</i>退租申请</a></li>
 

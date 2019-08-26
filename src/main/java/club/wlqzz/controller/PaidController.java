@@ -99,8 +99,8 @@ public class PaidController {
     public String addpaid(Integer id, Model model) {
         Zulist zulist = paidService.findzukezulist(id);
         model.addAttribute("zulist", zulist);
-        model.addAttribute("mainPage", "addpaid");
-        return "main1";
+        model.addAttribute("mainPage", "addpaid.jsp");
+        return "addpaid";
     }
 
     //添加租金信息到topaid表

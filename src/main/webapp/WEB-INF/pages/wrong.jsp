@@ -17,10 +17,8 @@
     <script type="text/javascript">
         var error = "${param.error}";
         if (error == "inserttopaid") {
-
             alert("租金信息添加成功！");
         }
-
     </script>
 </head>
 <body>
