@@ -63,7 +63,7 @@
                 </tr>
                 <tr>
                     <th><i class="require-red">*</i>地址：</th>
-                    <td><input class="common-text" name="address" value="${zulist.address }" id="address" size="50"
+                    <td><input class="common-text" name="address" value="${zulist.address}" id="address" size="50"
                                type="text" readonly></td>
                 </tr>
                 <tr>
@@ -89,7 +89,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <font id="error" color="red">${error }</font>
+                    <font id="error" color="red">${error}</font>
                 </tr>
                 </tbody>
             </table>

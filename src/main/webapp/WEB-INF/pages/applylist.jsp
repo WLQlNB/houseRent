@@ -25,7 +25,7 @@
 </div>
 <div>
     <form id="houseForm" name="houseForm"
-          action="${pageContext.request.contextPath}/houselist" method=post>
+          action="${pageContext.request.contextPath}/findapplylist" method=post>
         <div class="result-title">
             <div class="result-list">
             </div>
@@ -76,19 +76,18 @@
                                     </c:if>
 										<input type="hidden" name="page" id="page" value=""/>
 									第<B>${p.pageNum}</B>页
+
 									<c:if test="${ p.pageNum < p.pages }">
                                         [<A href="javascript:to_page(${p.nextPage})">后一页</A>]
                                     </c:if>
 								</div>
 							</span>
-
         </tr>
         </tbody>
         </tbody>
     </form>
 </div>
 <script language=javascript>
-    // 提交分页的查询的表单
     function to_page(page) {
         if (page) {
             $("#page").val(page);

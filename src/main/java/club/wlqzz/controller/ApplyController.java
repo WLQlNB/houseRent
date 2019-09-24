@@ -34,7 +34,8 @@ public class ApplyController {
         Userlist list = userlistService.findhasuserlist(user_id);
         if (list == null) {
             model.addAttribute("error", "applycheck");
-            return "redirect:houselist";
+            model.addAttribute("mainPage", "myapply.jsp");
+            return "main";
         } else {
             Houselist houselist = houselistService.findid(id);
             houselist.setStatus("已被申请");
@@ -49,7 +50,8 @@ public class ApplyController {
             apply.setUserlist_id(userlist_id);
             applyService.insertapply(apply);
             model.addAttribute("error", "applysuccess");
-            return "redirect:houselist";
+            model.addAttribute("mainPage", "myapply.jsp");
+            return "main";
         }
 
     }
@@ -60,11 +62,11 @@ public class ApplyController {
                                 @RequestParam(required = false, defaultValue = "2") Integer pageSize) throws Exception {
         PageHelper.startPage(page, pageSize);
         List<Apply> applylist = applyService.findapplylist();
-        PageInfo<Apply> p = new PageInfo<Apply>(applylist);
+        PageInfo<Apply> zp = new PageInfo<>(applylist);
         model.addAttribute("applylist", applylist);
-        model.addAttribute("p", p);
+        model.addAttribute("p", zp);
         model.addAttribute("mainPage", "applylist.jsp");
-        return "applylist";
+        return "main1";
     }
 
     @RequestMapping("/applychangehousestatus")
@@ -79,7 +81,7 @@ public class ApplyController {
         zulist.setHouse_id(house_id);
         zulist.setPrice(houselist.getPrice());
         zulist.setAddress(houselist.getAddress());
-        return "";
+        return "main1";
     }
 
     //管理员拒绝看房申请
@@ -89,7 +91,8 @@ public class ApplyController {
         houselist.setHouseid(house_id);
         houselist.setStatus("未租赁");
         applyService.refuseapply(houselist);
-        return "redirect:findapplylist";
+        model.addAttribute("mainPage", "applylist.jsp");
+        return "main1";
     }
 
     //租客查看自己的 看房申请
@@ -104,7 +107,7 @@ public class ApplyController {
         model.addAttribute("userlist", list);
         model.addAttribute("p", p);
         model.addAttribute("mainPage", "myapply.jsp");
-        return "applylist";
+        return "main";
     }
 
 

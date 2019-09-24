@@ -33,7 +33,7 @@
     <div class="result-title">
         <h1>退租申请</h1>
     </div>
-    <form id="houseForm" name="houseForm" action="${pageContext.request.contextPath}/applyout/findallapplyout.action"
+    <form id="houseForm" name="houseForm" action="${pageContext.request.contextPath}/applyout/findallapplyout"
           method=post>
         <div class="result-title">
             <div class="result-list">
@@ -68,17 +68,17 @@
                                 <c:choose>
                                     <c:when test="${applyout.status=='申请中'}">
                                         <a class="link-update"
-                                           href="${pageContext.request.contextPath}/applyout/agreeapplyout.action?id=${applyout.id }"
+                                           href="${pageContext.request.contextPath}/applyout/agreeapplyout?id=${applyout.id }"
                                            onclick="return window.confirm('确定要同意退租吗？')">同意</a>
                                         &nbsp;&nbsp;
 
                                         <a class="link-del"
-                                           href="${pageContext.request.contextPath}/applyout/refuseapplyout.action?id=${applyout.id }"
+                                           href="${pageContext.request.contextPath}/applyout/refuseapplyout?id=${applyout.id }"
                                            onclick="return window.confirm('确定要拒绝吗？')">拒绝</a>
                                     </c:when>
                                     <c:otherwise>
                                         <a class="link-del"
-                                           href="${pageContext.request.contextPath}/applyout/deleteapplyout.action?id=${applyout.id}"
+                                           href="${pageContext.request.contextPath}/applyout/deleteapplyout?id=${applyout.id}"
                                            onclick="return window.confirm('确定要删除该记录吗？')">删除</a>
                                     </c:otherwise>
                                 </c:choose>

@@ -35,21 +35,23 @@ public class CheckoutController {
         model.addAttribute("p", p);
         model.addAttribute("checkout", checkout);
         model.addAttribute("mainPage", "checkout.jsp");
-        return "checkout";
+        return "main1";
     }
 
     //租客删除自己已退租列表
     @RequestMapping("/deletecheckout")
-    public String deletecheckout(Integer id) {
+    public String deletecheckout(Integer id,Model model) {
         checkoutService.deletecheckout(id);
-        return "redirect:/checkout/getmycheckout";
+        model.addAttribute("mainPage", "mycheckout.jsp");
+        return "main";
     }
 
-    //租客删除自己已退租列表
+
     @RequestMapping("/admindeletecheckout")
-    public String admindeletecheckout(Integer id) {
+    public String admindeletecheckout(Integer id,Model model) {
         checkoutService.deletecheckout(id);
-        return "redirect:/checkout/getallcheckout";
+        model.addAttribute("mainPage", "checkout.jsp");
+        return "main1";
     }
 
     @RequestMapping("/getmycheckout")
@@ -63,6 +65,6 @@ public class CheckoutController {
         model.addAttribute("p", p);
         model.addAttribute("userlistcheck", list);
         model.addAttribute("mainPage", "mycheckout.jsp");
-        return "mycheckout";
+        return "main";
     }
 }

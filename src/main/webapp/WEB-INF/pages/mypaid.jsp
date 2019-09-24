@@ -9,9 +9,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main.css"/>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/libs/modernizr.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.8.3.min.js"></script>
-<%--
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-ui-datepicker.js"></script>
---%>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/jquery-ui.css"/>
     <style type="text/css">
@@ -40,10 +38,9 @@
     </div>
     <div class="search-wrap">
         <div class="search-content">
-            <form action="${pageContext.request.contextPath}/paid/findmypaid.action" method="post" name="myform">
+            <form action="${pageContext.request.contextPath}/paid/findmypaid" method="post" name="myform">
                 <table class="search-tab">
                     <tr>
-
                         <th width="70">起始日期:</th>
                         <td><input class="common-text" name="fromdate" placeholder="请选择应缴日期" value="${vo.fromdate}"
                                    id="fromdate" type="text" readonly></td>
@@ -57,7 +54,6 @@
             </form>
         </div>
     </div>
-
     <div class="result-title">
         <div class="result-list">
 
@@ -88,7 +84,7 @@
                     <td>${paid.status}</td>
                     <td>
                         <a class="link-update"
-                           href="${pageContext.request.contextPath}/paid/zukedeletepaid.action?id=${paid.id}"
+                           href="${pageContext.request.contextPath}/paid/zukedeletepaid?id=${paid.id}"
                            onclick="return window.confirm('确定删除吗？')">删除</a>
                     </td>
                 </tr>

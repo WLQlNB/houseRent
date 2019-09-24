@@ -101,4 +101,21 @@ public class Hetong {
         this.payday = payday;
     }
 
+
+    @Override
+    public String toString() {
+        return "Hetong{" +
+                "id=" + id +
+                ", chuzu='" + chuzu + '\'' +
+                ", chuzu_idcard='" + chuzu_idcard + '\'' +
+                ", zuke='" + zuke + '\'' +
+                ", zuke_idcard='" + zuke_idcard + '\'' +
+                ", fromdate='" + fromdate + '\'' +
+                ", todate='" + todate + '\'' +
+                ", price=" + price +
+                ", address='" + address + '\'' +
+                ", house_id='" + house_id + '\'' +
+                ", payday=" + payday +
+                '}';
+    }
 }

@@ -41,7 +41,7 @@ public class WrongController {
         model.addAttribute("p", p);
         model.addAttribute("mainPage", "solve.jsp");
         model.addAttribute("vo", vo);
-        return "solve";
+        return "main1";
     }
 
     //租客查找自己已处理的报障
@@ -58,9 +58,9 @@ public class WrongController {
         model.addAttribute("solve", list);
         model.addAttribute("count", count);
         model.addAttribute("p", p);
-        model.addAttribute("mainPage", "mysolve");
+        model.addAttribute("mainPage", "mysolve.jsp");
         model.addAttribute("vo", vo);
-        return "mysolve";
+        return "main";
     }
 
     //管理员删除已处理报障记录
@@ -72,8 +72,9 @@ public class WrongController {
 
     //zuke删除自己的已处理报障记录
     @RequestMapping("/zukedeletesolve")
-    public String zukedeletesolve(Integer id) {
+    public String zukedeletesolve(Integer id,Model model) {
         solveService.deletesolve(id);
+        model.addAttribute("mainPage", "mysolve.jsp");
         return "redirect:findmypaid";
     }
 
@@ -88,8 +89,8 @@ public class WrongController {
         PageInfo<Zulist> p = new PageInfo<Zulist>(list);
         model.addAttribute("zulist", list);
         model.addAttribute("p", p);
-        model.addAttribute("mainPage", "showaddwrong");
-        return "showaddwrong";
+        model.addAttribute("mainPage", "showaddwrong.jsp");
+        return "main";
     }
 
     //点击报障后跳转到添加报障信息页面
@@ -97,8 +98,8 @@ public class WrongController {
     public String addwrong(Integer id, Model model) {
         Zulist zulist = paidService.findzukezulist(id);
         model.addAttribute("zulist", zulist);
-        model.addAttribute("mainPage", "addwrong");
-        return "addwrong";
+        model.addAttribute("mainPage", "addwrong.jsp");
+        return "main";
     }
 
     //添加报障信息到wrong表
@@ -106,6 +107,7 @@ public class WrongController {
     public String insertwrong( Wrong wrong, Model model) {
         solveService.insertwrong(wrong);
         model.addAttribute("error","insertwrong");
+        model.addAttribute("mainPage", "addwrong.jsp");
         return "main";
     }
 
@@ -120,7 +122,7 @@ public class WrongController {
         model.addAttribute("wrong", list);
         model.addAttribute("p", p);
         model.addAttribute("mainPage", "wrong.jsp");
-        return "wrong";
+        return "main1";
     }
 
     //租客查看自己的未处理报障
@@ -136,8 +138,8 @@ public class WrongController {
         PageInfo<Wrong> p = new PageInfo<Wrong>(list);
         model.addAttribute("p", p);
         model.addAttribute("wrong", list);
-        model.addAttribute("mainPage", "mywrong");
-        return "mywrong";
+        model.addAttribute("mainPage", "mywrong.jsp");
+        return "main";
     }
 
     //管理员处理报障

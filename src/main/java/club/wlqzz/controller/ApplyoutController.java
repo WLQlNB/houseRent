@@ -37,7 +37,7 @@ public class ApplyoutController {
         Zulist zulist = zulistService.findzulist(house_id);
         applyoutService.insertapplyout(zulist);
         model.addAttribute("error", "applysuccess.jsp");
-        return "redirect:/zulist/myzulist";
+        return "main";
     }
 
     //查看退租申请
@@ -50,7 +50,7 @@ public class ApplyoutController {
         model.addAttribute("applyout", applyout);
         model.addAttribute("p", p);
         model.addAttribute("mainPage", "applyout.jsp");
-        return "applyout";
+        return "main1";
     }
 
     //管理员拒绝退租申请
@@ -60,8 +60,8 @@ public class ApplyoutController {
         applyout.setId(id);
         applyout.setStatus("已拒绝");
         applyoutService.updateapplyout(applyout);
-        model.addAttribute("mainPage", "applyout");
-        return "redirect:findallapplyout";
+        model.addAttribute("mainPage", "applyout.jsp");
+        return "main1";
     }
 
     //管理员同意退租申请
@@ -69,6 +69,7 @@ public class ApplyoutController {
     public String agreeapplyout(Model model, Integer id) {
         applyoutService.agreeapplyout(id);
         model.addAttribute("error", "applyoutsucess");
+
         return "redirect:findallapplyout";
     }
 
@@ -91,7 +92,7 @@ public class ApplyoutController {
         PageInfo<Userlist> p = new PageInfo<Userlist>(list);
         model.addAttribute("userlist", list);
         model.addAttribute("p", p);
-        model.addAttribute("mainPage", "myapplyout");
-        return "applyout";
+        model.addAttribute("mainPage", "myapplyout.jsp");
+        return "main";
     }
 }

@@ -4,9 +4,12 @@ import javax.servlet.http.HttpSession;
 
 import club.wlqzz.pojo.User;
 import club.wlqzz.service.UserService;
+import club.wlqzz.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -37,9 +40,31 @@ public class UserController {
         }
     }
 
+    @GetMapping("/reg")
+    public String Reg(){
+        return "reg";
+    }
+
+    @PostMapping("/doReg")
+    public String doReg(User user) throws Exception {
+        user.setType("zuke");
+        userService.addUser(user);
+        return "redirect:login";
+    }
+
     @RequestMapping("/toindex")
     public String toindex(Model model) throws Exception {
         return "index";
+    }
+
+    @RequestMapping("/main")
+    public String toMain() throws Exception {
+        return "main";
+    }
+
+    @RequestMapping("/main1")
+    public String toMain1() throws Exception {
+        return "main1";
     }
 }
 

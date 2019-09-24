@@ -11,13 +11,10 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/jquery-ui.css"/>
     <style type="text/css">
-
-
     </style>
     <script type="text/javascript">
         var error = "${param.error}";
         if (error == "insertwrong") {
-
             alert("报障信息已添加，管理员将收到你的请求。");
         }
 

@@ -78,7 +78,6 @@
     </form>
 </div>
 <script language=javascript>
-    // 提交分页的查询的表单
     function to_page(page) {
         if (page) {
             $("#page").val(page);

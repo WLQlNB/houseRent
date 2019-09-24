@@ -17,7 +17,6 @@
     <script type="text/javascript">
         var error = "${param.error}";
         if (error == "applysuccess") {
-
             alert("申请已提交，请耐心等待管理员的处理。如需查看进度，可前往“我的退租申请”中查看");
         }
     </script>

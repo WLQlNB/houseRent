@@ -7,7 +7,6 @@ import club.wlqzz.pojo.User;
 import club.wlqzz.pojo.Userlist;
 import club.wlqzz.service.UserService;
 import club.wlqzz.service.UserlistService;
-import club.wlqzz.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,11 +28,11 @@ public class UserlistController {
         User user1 = (User) httpSession.getAttribute("user");
         Integer user_id = user1.getId();
         Userlist userlist = userlistService.findhasuserlist(user_id);
+        user1.setUsername(userlist.getName());
         userService.updateUser(user1);
         model.addAttribute("userlist", userlist);
         model.addAttribute("mainPage", "updateuserlist.jsp");
-        return "updateuserlist";
-
+        return "main";
     }
 
     //查找并更新用户信息
@@ -44,7 +43,6 @@ public class UserlistController {
             Userlist list = userlistService.checkuserlist(idcard);
             if (list != null) {
                 model.addAttribute("error", "该身份证已被绑定,一个身份证号码只能被一个账户绑定！");
-                model.addAttribute("mainPage", "updateuserlist");
                 model.addAttribute("userlist", userlist);
             } else {
                 User user1 = (User) httpSession.getAttribute("user");
@@ -53,14 +51,13 @@ public class UserlistController {
                 userlistService.insertuserlist(userlist);
                 Userlist list1 = userlistService.checkuserlist(idcard);
                 model.addAttribute("error", "资料完善成功");
-                model.addAttribute("mainPage", "updateuserlist");
                 model.addAttribute("userlist", list1);
             }
         } else {
             Userlist list = userlistService.finduserlistupdate(userlist);
             if (list != null) {
                 model.addAttribute("error", "该身份证号码已被绑定");
-                model.addAttribute("mainPage", "updateuserlist");
+                model.addAttribute("mainPage", "updateuserlist.jsp");
                 model.addAttribute("userlist", userlist);
             } else {
                 userlistService.updateuserlist(userlist);
@@ -69,7 +66,7 @@ public class UserlistController {
                 model.addAttribute("userlist", userlist);
             }
         }
-        return "updateuserlist";
+        return "redirect:main";
     }
 
     @RequestMapping("/findalluserlist")
@@ -80,9 +77,8 @@ public class UserlistController {
         PageInfo<Userlist> p = new PageInfo<Userlist>(userlist);
         model.addAttribute("userlist", userlist);
         model.addAttribute("p", p);
-        model.addAttribute("mainPage", "userlist.list");
-        return "userlist";
-
+        model.addAttribute("mainPage", "userlist.jsp");
+        return "main1";
     }
 
     //删除用户信息

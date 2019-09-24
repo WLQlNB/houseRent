@@ -24,7 +24,6 @@
     </style>
     <script type="text/javascript">
         $().ready(function () {
-            // 在键盘按下并释放及提交后验证提交表单
             $("#myform").validate({
                 rules: {
                     houseid: {
@@ -109,7 +108,6 @@
                     <th><i class="require-red">*</i>状态：</th>
                     <td>
                         <select name="status" id="status" class="required">
-
                             <option value="已租赁" <c:if test="${houselist.status == '已租赁'}">selected</c:if>>已租赁</option>
                             <option value="未租赁" <c:if test="${houselist.status == '未租赁'}">selected</c:if>>未租赁</option>
                         </select>

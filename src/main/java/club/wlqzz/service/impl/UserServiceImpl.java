@@ -30,11 +30,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public User login(User user) throws Exception {
         User user1=userMapper.selectByUser(user);
-            if(user1==null){
-                userMapper.insert(user);
-                user1 = userMapper.selectByUser(user);
-            }
             return user1;
+    }
+
+    @Override
+    public void addUser(User user) throws Exception {
+        userMapper.insert(user);
     }
 
 }

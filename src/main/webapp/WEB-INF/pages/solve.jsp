@@ -7,9 +7,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main.css"/>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/libs/modernizr.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.8.3.min.js"></script>
-    <%--
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-ui-datepicker.js"></script>
-    --%>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-ui-datepicker.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/jquery-ui.css"/>
     <style type="text/css">
@@ -20,7 +18,6 @@
     </style>
     <script type="text/javascript">
         $().ready(function () {
-            // 在键盘按下并释放及提交后验证提交表单
             $("#fromdate").datepicker();
             $("#todate").datepicker();
         });

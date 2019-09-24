@@ -29,7 +29,7 @@ public class ScheduleController {
         model.addAttribute("schedule", schedule);
         model.addAttribute("p", p);
         model.addAttribute("mainPage", "schedule.jsp");
-        return "schedule";
+        return "main1";
     }
 
     @RequestMapping("/deleteschedule")
@@ -59,7 +59,7 @@ public class ScheduleController {
     @RequestMapping("/toinsert")
     public String toinsert(Model model) {
         model.addAttribute("mainPage", "addschedule.jsp");
-        return "addschedule";
+        return "main1";
     }
 
     @RequestMapping("/toupdate")
@@ -67,7 +67,7 @@ public class ScheduleController {
         Schedule schedule = scheduleService.selectbyid(id);
         model.addAttribute("schedule", schedule);
         model.addAttribute("mainPage", "updateschedule.jsp");
-        return "updateschedule";
+        return "main1";
 
     }
 }

@@ -10,5 +10,10 @@
         <setting name="useColumnLabel" value="true" />
         <setting name="cacheEnabled" value="true"/>
     </settings>
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <property name="helperDialect" value="mysql"/>
+        </plugin>
+    </plugins>
 </configuration>
 

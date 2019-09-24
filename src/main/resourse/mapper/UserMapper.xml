@@ -102,7 +102,6 @@
                 and type=#{type}
             </if>
         </where>
-
     </select>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="Integer">
         select
@@ -121,10 +120,10 @@
         </if>
     </delete>
     <insert id="insert" parameterType="User">
-    insert into user (username, password, type)
-    values ( #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
-      #{type,jdbcType=VARCHAR})
-  </insert>
+        insert into user (username, password, type)
+        values ( #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+          #{type,jdbcType=VARCHAR})
+    </insert>
     <insert id="insertSelective" parameterType="User">
         insert into user
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -208,11 +207,11 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="User">
-    update user
-    set username = #{username,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      type = #{type,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+        update user
+        set username = #{username,jdbcType=VARCHAR},
+          password = #{password,jdbcType=VARCHAR},
+          type = #{type,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
   </update>
 
 </mapper>

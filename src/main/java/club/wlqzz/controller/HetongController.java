@@ -30,7 +30,6 @@ public class HetongController {
         Houselist houselist = houselistService.findhouseid(hetong1.getHouse_id());
         houselist.setStatus("已租赁");
         houselistService.updatehousestatus(houselist);
-        //添加到租赁列表当中
         Zulist zulist = new Zulist();
         Apply apply = applyService.findbyhouse_id(hetong.getHouse_id());
         zulist.setHouse_id(hetong.getHouse_id());
@@ -39,10 +38,9 @@ public class HetongController {
         zulist.setPrice(apply.getPrice());
         zulist.setAddress(apply.getAddress());
         zulistService.insertzulist(zulist);
-        //从申请列表中删除
         applyService.deletebyhouse_id(hetong1.getHouse_id());
-        model.addAttribute("error", "zusuccess");
-        return "redirect:/zulist/findzulist";
+        model.addAttribute("error", "zusuccess.jsp");
+        return "main";
 
     }
 
@@ -50,23 +48,23 @@ public class HetongController {
     public String seehetong(String house_id, Model model) {
         Hetong hetong = hetongService.findhetong(house_id);
         model.addAttribute("hetong", hetong);
+        System.out.println("hotong"+hetong.getHouse_id());
         model.addAttribute("mainPage", "hetong.jsp");
-        return "hetong";
+        return "main1";
     }
 
     @RequestMapping("/updatehetong")
     public String updatehetong(String house_id, Model model) {
         Hetong hetong = hetongService.findhetong(house_id);
         model.addAttribute("hetong", hetong);
-        model.addAttribute("mainPage", "updatehetong");
-        return "updatehetong";
+        model.addAttribute("mainPage", "updatehetong.jsp");
+        return "main1";
     }
 
     @RequestMapping("/changehetong")
     public String changehetong(Hetong hetong) {
         hetongService.updatehetong(hetong);
-
-        return "redirect:/zulist/findzulist";
+        return "main1";
     }
     //终止合同操作：删除合同，插入已退租列表，删除在租列表，删除房屋列表
 
@@ -82,7 +80,6 @@ public class HetongController {
         checkoutService.insertcheckout(checkout);
         houselistService.deletehousebyhouseid(house_id);
         zulistService.deletezulist(house_id);
-
         model.addAttribute("error", "checkoutsuccess");
         return "redirect:/zulist/findzulist";
     }
@@ -90,8 +87,9 @@ public class HetongController {
     @RequestMapping("/zukeseehetong")
     public String zukeseehetong(String house_id, Model model) {
         Hetong hetong = hetongService.findhetong(house_id);
+        System.out.println("hetong"+hetong);
         model.addAttribute("hetong", hetong);
         model.addAttribute("mainPage", "showhetong.jsp");
-        return "hetong";
+        return "main";
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 public interface HouselistMapper {
     List<Houselist> selectAll();
 
-    public Integer findhouselistByVoCount(QueryVo vo);
+    Integer findhouselistByVoCount(QueryVo vo);
 
     Houselist findhouseid(String houseid);
 
@@ -25,7 +25,7 @@ public interface HouselistMapper {
 
     void updatehousestatus(Houselist houselist);
 
-    public void deletehousebyhouseid(String house_id);
+    void deletehousebyhouseid(String house_id);
 
-    public void updatestatus(Houselist houselist);
+    void updatestatus(Houselist houselist);
 }

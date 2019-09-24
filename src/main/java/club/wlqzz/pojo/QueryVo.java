@@ -1,7 +1,5 @@
 package club.wlqzz.pojo;
 
-import java.sql.Date;
-
 public class QueryVo {
     private String zuname;
     private String fromdate;

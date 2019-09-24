@@ -32,8 +32,8 @@ public class ZulistController {
         Hetong hetong = new Hetong();
         hetong.setHouse_id(house_id);
         model.addAttribute("hetong", hetong);
-        model.addAttribute("mainPage", "addhetong");
-        return "addhetong";
+        model.addAttribute("mainPage", "addhetong.jsp");
+        return "main1";
     }
 
     //管理员查看所有在租列表
@@ -46,7 +46,7 @@ public class ZulistController {
         model.addAttribute("p", p);
         model.addAttribute("zulist", zulist);
         model.addAttribute("mainPage", "zulist.jsp");
-        return "zulist";
+        return "main1";
     }
 
     //查看我的在租列表
@@ -62,7 +62,7 @@ public class ZulistController {
         model.addAttribute("userlistzu", list);
         model.addAttribute("p", p);
         model.addAttribute("mainPage", "myzulist.jsp");
-        return "myzulist";
+        return "main";
     }
 
 }

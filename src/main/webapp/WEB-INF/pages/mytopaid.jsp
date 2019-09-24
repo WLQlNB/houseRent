@@ -34,7 +34,7 @@
     <div class="result-title">
         <h1>待缴租金列表</h1>
     </div>
-    <form action="/text2/paid/mytopaidlist" method="post" name="myform">
+    <form action="${pageContext.request.contextPath}/paid/mytopaidlist" method="post" name="myform">
         <div class="result-title">
             <div class="result-list">
             </div>
@@ -53,8 +53,7 @@
                     <td>操作</td>
                 </tr>
                 <c:forEach items="${topaid}" var="topaid">
-                    <tr
-                            style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
+                    <tr style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
                         <td>${topaid.house_id }</td>
                         <td>${topaid.address}</td>
                         <td>${topaid.price}</td>
@@ -62,9 +61,8 @@
                         <td>${topaid.name}</td>
                         <td>${topaid.status}</td>
                         <td><a class="link-update"
-                               href="/text2/paid/gotopay?id=${topaid.id }"
+                               href="${pageContext.request.contextPath}/paid/gotopay?id=${topaid.id }"
                                onclick="return window.confirm('确定要支付吗?')">支付租金</a>
-                            &nbsp;&nbsp;
                         </td>
                     </tr>
                 </c:forEach>
@@ -89,7 +87,6 @@
         </tr>
         </tbody>
         </tbody>
-
     </form>
 
 </div>

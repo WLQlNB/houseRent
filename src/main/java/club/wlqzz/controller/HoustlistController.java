@@ -30,8 +30,8 @@ public class HoustlistController {
         PageInfo<Houselist> p = new PageInfo<Houselist>(houselist);
         model.addAttribute("p", p);
         model.addAttribute("houselist", houselist);
-        model.addAttribute("mainPage", "houselist");
-        return "houselist";
+        model.addAttribute("mainPage", "houselist.jsp");
+        return "main";
     }
 
     @RequestMapping("/ahouselist")
@@ -42,8 +42,8 @@ public class HoustlistController {
         PageInfo<Houselist> p = new PageInfo<Houselist>(houselist);
         model.addAttribute("p", p);
         model.addAttribute("houselist", houselist);
-        model.addAttribute("mainPage", "ahouselist");
-        return "ahouselist";
+        model.addAttribute("mainPage", "ahouselist.jsp");
+        return "main1";
     }
 
     @RequestMapping("/addhouse")
@@ -60,20 +60,21 @@ public class HoustlistController {
             houselistService.inserthouse(houselist);
             model.addAttribute("houselist", houselist);
             model.addAttribute("mainPage", "addhouse");
-            return "addhouse";
+            return "redirect:main1";
         }
     }
 
     @RequestMapping("/toaddhouse")
     public String toaddhoust(Model model) {
         model.addAttribute("mainPage", "addhouse.jsp");
-        return "addhouse";
+        return "main1";
     }
 
     @RequestMapping("/deletehouse")
-    public String deletehouse(Integer id) {
+    public String deletehouse(Integer id,Model model) {
         houselistService.deletehouse(id);
-        return "redirect:ahouselist";
+        model.addAttribute("mainPage", "ahouselist.jsp");
+        return "main1";
     }
 
     @RequestMapping("/toahouselist")
@@ -85,8 +86,8 @@ public class HoustlistController {
     public String findid(Integer id, Model model) {
         Houselist list = houselistService.findid(id);
         model.addAttribute("houselist", list);
-        model.addAttribute("mainPage", "changehouse");
-        return "changehouse";
+        model.addAttribute("mainPage", "changehouse.jsp");
+        return "main1";
     }
 
     @RequestMapping("/findhouseidupdate")
@@ -94,13 +95,13 @@ public class HoustlistController {
         Houselist list = houselistService.findhouseidupdate(houselist);
         if (list != null) {
             model.addAttribute("houselist", houselist);
-            model.addAttribute("mainPage", "changehouse");
+            model.addAttribute("mainPage", "changehouse.jsp");
             model.addAttribute("error", "该房屋id已存在");
             return "main1";
         } else {
             houselistService.updatehouse(houselist);
             model.addAttribute("houselist", houselist);
-            model.addAttribute("mainPage", "changehouse");
+            model.addAttribute("mainPage", "changehouse.jsp");
             model.addAttribute("error", "更新成功");
             return "main1";
         }

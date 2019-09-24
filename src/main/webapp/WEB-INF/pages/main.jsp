@@ -17,15 +17,12 @@
         }
     </style>
     <script language=javascript>
-        // 提交分页的查询的表单
         function to_page(url1) {
             $.ajax({
                 url: url1,
                 type: "post",
                 async: false,
                 success: function (data) {
-                    // 你的具体操作
-                    // alert(data);
                     $("#inside").html(data);
                     alert("成功");
                 },

@@ -11,9 +11,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main.css"/>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/libs/modernizr.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.8.3.min.js"></script>
-<%--
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-ui-datepicker.js"></script>
---%>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/jquery-ui.css"/>
     <style>
@@ -33,35 +31,24 @@
                     house_id: {
                         required: true,
                     },
-
                     address: {
                         required: true,
-
                     },
                     chuzu: {
                         required: true,
-
-
                     },
                     price: {
                         required: true,
                         min: 1
-
                     },
                     chuzu_idcard: {
                         required: true,
-
-
                     },
                     zuke: {
                         required: true,
-
-
                     },
                     zuke_idcard: {
                         required: true,
-
-
                     },
                     fromdate: {
                         required: true,
@@ -74,41 +61,29 @@
                         min: 0,
                         max: 31,
                     }
-
                 },
                 messages: {
                     house_id: {
                         required: "房屋id不能为空",
                     },
-
                     address: {
                         required: "房屋地址不能为空",
-
                     },
                     chuzu: {
                         required: "出租方不能为空",
-
-
                     },
                     price: {
                         required: "租金不能为空",
                         min: "请输入正确的租金"
-
                     },
                     chuzu_idcard: {
                         required: "出租方证件号不能为空",
-
-
                     },
                     zuke: {
                         required: "承租方不能为空",
-
-
                     },
                     zuke_idcard: {
                         required: "承租方证件号不能为空",
-
-
                     },
                     fromdate: {
                         required: "起租时间不能为空",
@@ -121,7 +96,6 @@
                         min: "每月交租日必须大于0",
                         max: "每月交租日必须小于31",
                     }
-
                 }
             });
         })
@@ -178,7 +152,7 @@
                 <tr>
                     <th><i class="require-red">*</i>退租时间：</th>
                     <td><input class="common-text" name="todate" id="todate" value="${hetong.todate}" size="50"
-                               type="text" ></td>
+                               type="text"></td>
                 </tr>
                 <tr>
                     <th><i class="require-red">*</i>每月租金：</th>
@@ -198,7 +172,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <font id="error" color="red">${error }</font>
+                    <font id="error" color="red">${error}</font>
                 </tr>
                 </tbody>
             </table>

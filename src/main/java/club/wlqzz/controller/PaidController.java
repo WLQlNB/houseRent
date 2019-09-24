@@ -44,7 +44,7 @@ public class PaidController {
         model.addAttribute("p", p);
         model.addAttribute("mainPage", "paid.jsp");
         model.addAttribute("vo", vo);
-        return "paid";
+        return "main1";
     }
 
     //租客查找自己已缴租金列表
@@ -62,14 +62,14 @@ public class PaidController {
         model.addAttribute("paid", list);
         model.addAttribute("sum", sum);
         model.addAttribute("p", p);
-        model.addAttribute("mainPage", "mypaid");
+        model.addAttribute("mainPage", "mypaid.jsp");
         model.addAttribute("vo", vo);
-        return "mypaid";
+        return "main";
     }
 
     //管理员删除已缴租金记录
     @RequestMapping("/deletepaid")
-    public String deletepaid(Integer id) {
+    public String deletepaid(Integer id,Model model) {
         paidService.deletepaid(id);
         return "redirect:selectall";
     }
@@ -91,7 +91,7 @@ public class PaidController {
         model.addAttribute("zulist", list);
         model.addAttribute("p", p);
         model.addAttribute("mainPage", "showaddpaid.jsp");
-        return "showaddpaid";
+        return "main1";
     }
 
     //点击收租后跳转到添加租金信息页面
@@ -100,7 +100,7 @@ public class PaidController {
         Zulist zulist = paidService.findzukezulist(id);
         model.addAttribute("zulist", zulist);
         model.addAttribute("mainPage", "addpaid.jsp");
-        return "addpaid";
+        return "main1";
     }
 
     //添加租金信息到topaid表
@@ -123,7 +123,7 @@ public class PaidController {
         model.addAttribute("topaid", list);
         model.addAttribute("p", p);
         model.addAttribute("mainPage", "topaid.jsp");
-        return "topaid";
+        return "main1";
     }
 
     //租客查看自己的未缴租金
@@ -139,8 +139,8 @@ public class PaidController {
         PageInfo<Topaid> p = new PageInfo<Topaid>(topaid);
         model.addAttribute("p", p);
         model.addAttribute("topaid", topaid);
-        model.addAttribute("mainPage", "mytopaid");
-        return "mytopaid";
+        model.addAttribute("mainPage", "mytopaid.jsp");
+        return "main";
     }
 
     //租客进行支付操作
@@ -161,6 +161,8 @@ public class PaidController {
         paid.setStatus("租金已缴");
         topaidService.gotopay(id, paid);
         model.addAttribute("error", "paysucess");
-        return "redirect:findmypaid";
+        model.addAttribute("mainPage", "mytopaid.jsp");
+       // return "redirect:findmypaid";
+        return "main";
     }
 }
