@@ -11,7 +11,7 @@
         <h1>注册</h1>
         <form class="form" id="regform"
               action="${pageContext.request.contextPath}/doReg" method="post">
-            <div><input type="text" name="username" placeholder="姓名"></div>
+            <div><input type="text" name="userName" placeholder="姓名"></div>
             <div><input type="password" name="password" placeholder="密码"></div>
             <div>
                 <button type="submit" id="login-button">确定</button>

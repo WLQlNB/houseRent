@@ -11,7 +11,7 @@
         <h1>房屋租赁系统</h1>
         <form class="form" id="loginform"
               action="${pageContext.request.contextPath}/logincheck" method="post">
-            <div><input type="text" name="id" placeholder="用户名"></div>
+            <div><input type="text" name="username" placeholder="用户名"></div>
             <div><input type="password" name="password" placeholder="密码"></div>
             <div>
                 <label class="radio inline">

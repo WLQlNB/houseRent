@@ -87,11 +87,11 @@
     </select>
     <select id="selectByUser" resultType="User" parameterType="User">
         select *
-        from user
+        from user<!-- where username=#{username}-->
         <where>
-            <if test="id!=0">
+            <!--<if test="id!=0">
                 and id=#{id}
-            </if>
+            </if>-->
             <if test="username!=null and username!=''">
                 and username=#{username}
             </if>

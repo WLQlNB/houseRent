@@ -40,6 +40,7 @@ public class HetongController {
         zulistService.insertzulist(zulist);
         applyService.deletebyhouse_id(hetong1.getHouse_id());
         model.addAttribute("error", "zusuccess.jsp");
+        model.addAttribute("mainPage", "hetong.jsp");
         return "main";
 
     }

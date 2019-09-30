@@ -23,7 +23,6 @@ public class UserServiceImpl implements UserService {
     public List<User> userList() throws Exception {
         UserExample example = new UserExample();
         List<User> list = userMapper.selectByExample(example);
-        System.out.println("123" + list);
         return list;
     }
 

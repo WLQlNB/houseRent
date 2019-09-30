@@ -107,7 +107,7 @@ public class WrongController {
     public String insertwrong( Wrong wrong, Model model) {
         solveService.insertwrong(wrong);
         model.addAttribute("error","insertwrong");
-        model.addAttribute("mainPage", "addwrong.jsp");
+       // model.addAttribute("mainPage", "addwrong.jsp");
         return "main";
     }
 

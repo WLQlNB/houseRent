@@ -53,14 +53,14 @@ public class HoustlistController {
         if (houselist1 != null) {
             model.addAttribute("error", "该房屋id已存在");
             model.addAttribute("houselist", houselist);
-            model.addAttribute("mainPage", "addhouse");
-            return "addhouse";
+            model.addAttribute("mainPage", "addhouse.jsp");
+            return "main1";
         } else {
             model.addAttribute("error", "添加成功");
             houselistService.inserthouse(houselist);
             model.addAttribute("houselist", houselist);
-            model.addAttribute("mainPage", "addhouse");
-            return "redirect:main1";
+            model.addAttribute("mainPage", "addhouse.jsp");
+            return "main1";
         }
     }
 

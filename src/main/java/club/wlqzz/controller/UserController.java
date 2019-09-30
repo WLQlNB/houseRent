@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -26,6 +27,7 @@ public class UserController {
     @RequestMapping("/logincheck")
     public String login(User user, Model model, HttpSession httpSession) throws Exception {
         User user1 = userService.login(user);
+        System.out.println("user "+user);
         if (user1 != null) {
             httpSession.setAttribute("user", user1);
             if (user1.getType().equals("zuke")) {
@@ -46,7 +48,11 @@ public class UserController {
     }
 
     @PostMapping("/doReg")
-    public String doReg(User user) throws Exception {
+    public String doReg(@RequestParam("userName") String userName,
+                        @RequestParam("password") String password) throws Exception {
+        User user=new User();
+        user.setUsername(userName);
+        user.setPassword(password);
         user.setType("zuke");
         userService.addUser(user);
         return "redirect:login";

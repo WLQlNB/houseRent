@@ -3,10 +3,9 @@ package club.wlqzz.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
-import club.wlqzz.pojo.Hetong;
-import club.wlqzz.pojo.User;
-import club.wlqzz.pojo.Userlist;
-import club.wlqzz.pojo.Zulist;
+
+import club.wlqzz.pojo.*;
+import club.wlqzz.service.HouselistService;
 import club.wlqzz.service.UserlistService;
 import club.wlqzz.service.ZulistService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +24,16 @@ public class ZulistController {
     private ZulistService zulistService;
     @Autowired
     private UserlistService userlistService;
+    @Autowired
+    private HouselistService houselistService;
 
     //跳到增添合同的页面
     @RequestMapping("/toaddhetong")
     public String toaddhetong(Model model, String house_id) {
         Hetong hetong = new Hetong();
         hetong.setHouse_id(house_id);
+        Houselist houselist=houselistService.findhouseid(house_id);
+        hetong.setAddress(houselist.getAddress());
         model.addAttribute("hetong", hetong);
         model.addAttribute("mainPage", "addhetong.jsp");
         return "main1";

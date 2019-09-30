@@ -26,7 +26,6 @@
             $("#fromdate").datepicker();
             $("#todate").datepicker();
             $("#myform").validate({
-
                 rules: {
                     house_id: {
                         required: true,

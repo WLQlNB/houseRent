@@ -34,7 +34,6 @@ public class ApplyController {
         Userlist list = userlistService.findhasuserlist(user_id);
         if (list == null) {
             model.addAttribute("error", "applycheck");
-            model.addAttribute("mainPage", "myapply.jsp");
             return "main";
         } else {
             Houselist houselist = houselistService.findid(id);
@@ -50,7 +49,6 @@ public class ApplyController {
             apply.setUserlist_id(userlist_id);
             applyService.insertapply(apply);
             model.addAttribute("error", "applysuccess");
-            model.addAttribute("mainPage", "myapply.jsp");
             return "main";
         }
 
